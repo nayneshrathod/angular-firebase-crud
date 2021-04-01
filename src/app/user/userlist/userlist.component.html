@@ -1,0 +1,61 @@
+<div class="row">
+
+  <form [formGroup]="MyForm" (ngSubmit)="create(MyForm.value)" novalidate class="col-md-3 mt-5">
+    <div class="form-group">
+      <label for="FirstName">First Name</label>
+      <input id="FirstName" class="form-control" type="text" name="FirstName" formControlName="FirstName">
+    </div>
+    <div class="form-group">
+      <label for="LastName">Last Name</label>
+      <input id="LastName" class="form-control" type="text" name="LastName" formControlName="LastName">
+    </div>
+    <div class="form-group">
+      <label for="Email">Email ID</label>
+      <input id="Email" class="form-control" type="email" name="Email" formControlName="Email">
+    </div>
+    <div class="form-group">
+      <label for="Mobile">Mobile Number</label>
+      <input id="Mobile" class="form-control" type="number" name="Mobile" formControlName="Mobile">
+    </div>
+    <div class="form-group">
+      <label for="Username">Username</label>
+      <input id="Username" class="form-control" type="text" name="Username" formControlName="Username">
+    </div>
+    <div class="form-group">
+      <label for="Password">Password</label>
+      <input id="Password" class="form-control" type="password" name="Password" formControlName="Password">
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-success btn-block" type="submit">Save</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-danger btn-block" type="reset">Reset</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-bordered   col-md-9 mt-5">
+    <thead>
+      <th>Full Name </th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+
+        <td>{{u.FirstName}} {{u.LastName}}</td>
+        <td>{{u.Email}}</td>
+        <td>{{u.Mobile}}</td>
+        <td>{{u.Username}}</td>
+        <td>{{u.Password}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(u.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
